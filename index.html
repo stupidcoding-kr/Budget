@@ -8,19 +8,19 @@
     :root {
       --bg: #ffffff;
       --card-bg: #ffffff;
-      --text-main: #37352f;
-      --text-muted: #9b9a97;
-      --border: #e9e9e8;
-      --border-hover: #d3d3d0;
-      --pill-bg: #f1f1ee;
-      --btn-bg: #f1f1ee;
-      --btn-hover: #e3e3e0;
-      --btn-text: #37352f;
-      --income: #458256;
-      --expense: #d9553f;
-      --loan-tag: #3f6e52;
-      --card-tag: #ba7833;
-      --fixed-tag: #787774;
+      --text-main: #4f4f4f; /* 부드러운 다크 그레이 */
+      --text-muted: #888885; /* 소프트 쿨 그레이 */
+      --border: #ececeb;
+      --border-hover: #d8d8d5;
+      --pill-bg: #f4f4f2;
+      --btn-bg: #f4f4f2;
+      --btn-hover: #e8e8e5;
+      --btn-text: #4f4f4f;
+      --income: #507d5c; /* 다운톤 그린 */
+      --expense: #c25e4e; /* 다운톤 로즈/레드 */
+      --loan-tag: #787875; /* 연회색 */
+      --card-tag: #787875; /* 연회색 */
+      --fixed-tag: #888888;
       --radius: 8px;
     }
 
@@ -37,12 +37,12 @@
 
     .segmented-control { display: flex; background: var(--pill-bg); padding: 2px; border-radius: 6px; gap: 2px; }
     .segmented-control button { border: none; background: transparent; padding: 4px 10px; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); border-radius: 4px; cursor: pointer; transition: all 0.2s ease; }
-    .segmented-control button.active { background: #ffffff; color: var(--text-main); box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    .segmented-control button.active { background: #ffffff; color: var(--text-main); box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
 
     .page { display: none; padding: 12px 16px; }
     .page.active { display: block; }
 
-    /* Calendar Controls & Compact Grid */
+    /* Calendar Controls & Square Grid */
     .month-ctrl { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .month-ctrl h2 { font-size: 0.98rem; font-weight: 700; color: var(--text-main); }
     .btn-icon { background: none; border: none; font-size: 0.85rem; cursor: pointer; color: var(--text-muted); padding: 3px 8px; border-radius: 4px; }
@@ -51,45 +51,46 @@
     .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
     .day-header { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); padding-bottom: 4px; }
     .day-header.sun { color: var(--expense); }
-    .day-header.sat { color: #4b7bec; }
+    .day-header.sat { color: #5a85db; }
 
-    .cal-day { min-height: 56px; padding: 4px 2px; border-radius: 6px; border: 1px solid var(--border); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; transition: 0.15s; background: #fff; overflow: hidden; }
+    /* Square Calendar Day Cell */
+    .cal-day { aspect-ratio: 1 / 1; width: 100%; padding: 3px 2px; border-radius: 6px; border: 1px solid var(--border); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; transition: 0.15s; background: #fff; overflow: hidden; }
     .cal-day:hover { background: #fdfdfc; border-color: var(--border-hover); }
-    .cal-day.today { border-color: var(--text-main); font-weight: 700; background: #fbfbf9; }
+    .cal-day.today { border-color: var(--text-main); font-weight: 700; background: #fafaf8; }
     
-    .day-num { font-size: 0.76rem; font-weight: 600; color: var(--text-main); text-align: center; width: 100%; margin-bottom: 2px; }
+    .day-num { font-size: 0.75rem; font-weight: 600; color: var(--text-main); text-align: center; width: 100%; margin-bottom: 1px; }
 
     /* Calendar Badges */
-    .badge { font-size: 0.6rem; font-weight: 600; padding: 1px 3px; border-radius: 3px; margin-top: 1px; text-align: left; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.15; }
-    .badge-exp { background: #fdf0ed; color: var(--expense); }
-    .badge-inc { background: #edf6f0; color: var(--income); }
-    .badge-loan { background: #f0f4f1; color: var(--loan-tag); }
-    .badge-card { background: #fdf6ed; color: var(--card-tag); }
+    .badge { font-size: 0.58rem; font-weight: 600; padding: 1px 3px; border-radius: 3px; margin-top: 1px; text-align: left; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.15; }
+    .badge-exp { background: #fcf1f0; color: var(--expense); }
+    .badge-inc { background: #f0f6f2; color: var(--income); }
+    .badge-loan { background: #f2f2f0; color: var(--loan-tag); }
+    .badge-card { background: #f2f2f0; color: var(--card-tag); }
 
     /* Summary Bar below Calendar */
-    .summary-bar { margin-top: 10px; padding: 8px 12px; background: #fbfbf9; border: 1px solid var(--border); border-radius: 6px; font-size: 0.8rem; color: var(--text-main); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+    .summary-bar { margin-top: 10px; padding: 8px 12px; background: #fafaf8; border: 1px solid var(--border); border-radius: 6px; font-size: 0.8rem; color: var(--text-main); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
     .summary-calc { font-weight: 600; font-size: 0.82rem; }
     .summary-fixed { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
 
     /* Asset View Elements */
-    .net-asset-box { background: #fbfbf9; border: 1px solid var(--border); border-radius: 6px; padding: 12px; text-align: center; margin-bottom: 12px; }
+    .net-asset-box { background: #fafaf8; border: 1px solid var(--border); border-radius: 6px; padding: 12px; text-align: center; margin-bottom: 12px; }
     .net-asset-title { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); margin-bottom: 2px; }
-    .net-asset-val { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
+    .net-asset-val { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; color: var(--text-main); }
 
     .section-header { font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin: 12px 0 6px 0; display: flex; justify-content: space-between; align-items: center; }
     
     .item-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.15s; }
-    .item-card:hover { border-color: var(--border-hover); background: #fbfbf9; }
+    .item-card:hover { border-color: var(--border-hover); background: #fafaf8; }
     .item-info { display: flex; flex-direction: column; gap: 1px; }
-    .item-title { font-size: 0.82rem; font-weight: 600; }
+    .item-title { font-size: 0.82rem; font-weight: 600; color: var(--text-main); }
     .item-sub { font-size: 0.7rem; color: var(--text-muted); }
-    .item-val { font-size: 0.82rem; font-weight: 700; text-align: right; }
+    .item-val { font-size: 0.82rem; font-weight: 700; text-align: right; color: var(--text-main); }
 
     .btn-add-dashed { width: 100%; padding: 6px; border: 1px dashed var(--border); background: transparent; border-radius: 6px; color: var(--text-muted); font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: 0.2s; margin-top: 2px; text-align: center; }
-    .btn-add-dashed:hover { background: #fbfbf9; border-color: var(--border-hover); color: var(--text-main); }
+    .btn-add-dashed:hover { background: #fafaf8; border-color: var(--border-hover); color: var(--text-main); }
 
     /* Modal Overlay & Card */
-    .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.25); display: flex; justify-content: center; align-items: flex-end; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: flex-end; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
     .modal.active { opacity: 1; pointer-events: auto; }
     .modal-content { background: #fff; width: 100%; max-width: 520px; border-radius: 12px 12px 0 0; padding: 16px; max-height: 85vh; overflow-y: auto; }
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
@@ -118,25 +119,25 @@
     .list-box { max-height: 140px; overflow-y: auto; margin-bottom: 10px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
     .list-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.78rem; }
     
-    .calc-preview { background: #f8f9fa; border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; margin-top: 6px; font-size: 0.75rem; color: var(--text-main); line-height: 1.4; }
+    .calc-preview { background: #fafaf8; border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; margin-top: 6px; font-size: 0.75rem; color: var(--text-main); line-height: 1.4; }
     .calc-preview span { font-weight: 700; color: var(--text-main); }
 
-    .btn-inline-sm { padding: 3px 6px; font-size: 0.7rem; border-radius: 4px; border: 1px solid var(--border); background: #fff; cursor: pointer; font-weight: 600; }
+    .btn-inline-sm { padding: 3px 6px; font-size: 0.7rem; border-radius: 4px; border: 1px solid var(--border); background: #fff; cursor: pointer; font-weight: 600; color: var(--text-main); }
     .btn-inline-sm:hover { background: var(--pill-bg); }
 
     /* Custom Dropdown UI */
-    .custom-select-trigger { width: 100%; padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.82rem; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .custom-select-trigger { width: 100%; padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.82rem; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; color: var(--text-main); }
     .custom-select-trigger:hover { border-color: var(--border-hover); }
-    .custom-dropdown-panel { position: absolute; top: 100%; left: 0; right: 0; background: #fff; border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); z-index: 100; margin-top: 4px; padding: 4px; }
-    .custom-dropdown-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; font-size: 0.78rem; border-radius: 4px; cursor: pointer; transition: background 0.15s; }
+    .custom-dropdown-panel { position: absolute; top: 100%; left: 0; right: 0; background: #fff; border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); z-index: 100; margin-top: 4px; padding: 4px; }
+    .custom-dropdown-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; font-size: 0.78rem; border-radius: 4px; cursor: pointer; transition: background 0.15s; color: var(--text-main); }
     .custom-dropdown-item:hover { background: var(--pill-bg); }
     .custom-dropdown-add-row { padding: 6px 8px; font-size: 0.78rem; border-radius: 4px; cursor: pointer; color: var(--text-muted); font-weight: 600; transition: background 0.15s; }
     .custom-dropdown-add-row:hover { background: var(--pill-bg); color: var(--text-main); }
     .custom-dropdown-input { width: 100%; padding: 5px 6px; font-size: 0.75rem; border: 1px solid var(--border); border-radius: 4px; outline: none; }
     .custom-dropdown-input:focus { border-color: var(--text-main); }
     
-    .btn-del-item { color: var(--expense); font-weight: normal; border: none; background: none; cursor: pointer; font-size: 0.82rem; padding: 0 4px; opacity: 0.6; }
-    .btn-del-item:hover { opacity: 1; }
+    .btn-del-item { color: var(--text-muted); font-weight: normal; border: none; background: none; cursor: pointer; font-size: 0.82rem; padding: 0 4px; opacity: 0.6; }
+    .btn-del-item:hover { opacity: 1; color: var(--expense); }
   </style>
 </head>
 <body>
@@ -202,7 +203,7 @@
     <!-- 4. 대출 -->
     <div class="section-header" style="margin-top:14px;">
       <span>대출</span>
-      <span style="font-size:0.75rem; color:var(--expense);" id="dispTotalLoan">0원</span>
+      <span style="font-size:0.75rem; color:var(--text-muted);" id="dispTotalLoan">0원</span>
     </div>
     <div id="loanList"></div>
     <button class="btn-add-dashed" onclick="openLoanModal()">+ add</button>
@@ -210,7 +211,7 @@
     <!-- 5. 카드 -->
     <div class="section-header" style="margin-top:14px;">
       <span>카드</span>
-      <span style="font-size:0.75rem; color:var(--expense);" id="dispTotalCard">0원</span>
+      <span style="font-size:0.75rem; color:var(--text-muted);" id="dispTotalCard">0원</span>
     </div>
     <div id="cardList"></div>
     <button class="btn-add-dashed" onclick="openCardModal()">+ add</button>
@@ -274,7 +275,7 @@
       <div class="form-group">
         <label class="checkbox-container">
           <input type="checkbox" id="txIsFixed" />
-          <span class="checkbox-label">고정비로 설정</span>
+          <span class="checkbox-label">고정비</span>
         </label>
       </div>
 
@@ -1124,7 +1125,7 @@
             <div class="item-sub">이자상환일: 매월 ${l.interestDay}일 (월 이자 약 ${monthlyInterest.toLocaleString()}원) ${l.maturity ? `| 만기일 ${l.maturity}` : ''}</div>
           </div>
           <div>
-            <span class="item-val" style="color:var(--expense);">${l.amount.toLocaleString()}원</span>
+            <span class="item-val">${l.amount.toLocaleString()}원</span>
             <button style="border:none; background:none; cursor:pointer; color:var(--text-muted); margin-left:6px;" onclick="deleteLoan(${i})">&times;</button>
           </div>
         </div>
